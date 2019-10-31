@@ -23,8 +23,12 @@ Include methods in your code for the organization.
 
 Sample output to get you started:
 > Let's start your adventure…
+
 > You are in a creepy house! Would you like to go “upstairs”  or into the “kitchen”?
+
 > kitchen
+
 > There is a long countertop with dirty dishes everywhere. Off to one side, there is a refrigerator. You hear a noise inside. Do you want to open the “refrigerator” or go “back”?
+
 > back
 -----
