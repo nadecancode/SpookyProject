@@ -2,7 +2,7 @@ package me.allen.spooky.scripts.type;
 
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
-import me.allen.spooky.scripts.type.kitchen.ScriptKitchen;
+import me.allen.spooky.scripts.type.window.ScriptWindow;
 
 public class ScriptEnter extends SpookyScript {
 
@@ -19,8 +19,8 @@ public class ScriptEnter extends SpookyScript {
     @Override
     public String[] getMessage() {
         return new String[] {
-                "Let's start your adventure",
-                "You are in a creepy house! Would you like to go \"upstairs\" or into the \"kitchen\" ?"
+                "You wake up because of a blinding orange light coming out of the window. You glance at you watch. Its 3:00AM.",
+                "Choose: Open the window (Input \"window\"), or Go downstairs (Input \"stairs\")"
         };
     }
 
@@ -32,8 +32,9 @@ public class ScriptEnter extends SpookyScript {
     @Override
     public SpookyScript getNextScript(String trigger) {
         switch (trigger.toLowerCase()) {
-            case "kitchen":
-                return new ScriptKitchen();
+            case "window":
+                return new ScriptWindow();
+            case "stairs":
             default:
                 return ScriptManager.DENIED;
         }

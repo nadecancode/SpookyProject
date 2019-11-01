@@ -1,13 +1,13 @@
-package me.allen.spooky.scripts.type.kitchen;
+package me.allen.spooky.scripts.type.window;
 
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
 import me.allen.spooky.scripts.type.ScriptEnter;
 
-public class ScriptKitchen extends SpookyScript {
+public class ScriptWindow extends SpookyScript {
 
     public String getName() {
-        return "Kitchen";
+        return "Window";
     }
 
     @Override

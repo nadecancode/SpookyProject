@@ -2,12 +2,14 @@ package me.allen.spooky;
 
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
+import me.allen.spooky.user.SpookyUser;
 
 import java.util.Scanner;
 
 public class Spooky {
 
     private static ScriptManager scriptManager;
+    private SpookyUser spookyUser = new SpookyUser();
 
     private static Spooky instance;
 
@@ -51,5 +53,10 @@ public class Spooky {
             }
         } while (scriptManager.getCurrentScript().getNextScript("") != null);
 
+        System.exit(0);
+    }
+
+    public SpookyUser getSpookyUser() {
+        return this.spookyUser;
     }
 }
