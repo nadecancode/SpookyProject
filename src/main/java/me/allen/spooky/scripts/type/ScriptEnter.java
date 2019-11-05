@@ -2,6 +2,7 @@ package me.allen.spooky.scripts.type;
 
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
+import me.allen.spooky.scripts.type.upstairs.ScriptStairs;
 import me.allen.spooky.scripts.type.window.ScriptWindow;
 
 public class ScriptEnter extends SpookyScript {
@@ -20,7 +21,7 @@ public class ScriptEnter extends SpookyScript {
     public String[] getMessage() {
         return new String[] {
                 "You wake up because of a blinding orange light coming out of the window. You glance at you watch. Its 3:00AM.",
-                "Choose: Open the window (Input \"window\"), or Go downstairs (Input \"stairs\")"
+                "Choose: Open the window (Input \"window\")" + (!spooky.getSpookyUser().hasActionPerformed("FellFromStairs") ? ", or Go downstairs (Input \"stairs\")" : ""),
         };
     }
 
@@ -35,6 +36,7 @@ public class ScriptEnter extends SpookyScript {
             case "window":
                 return new ScriptWindow();
             case "stairs":
+                return (spooky.getSpookyUser().hasActionPerformed("FellFromStairs") ? ScriptManager.DENIED : new ScriptStairs());
             default:
                 return ScriptManager.DENIED;
         }

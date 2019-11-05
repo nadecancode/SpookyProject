@@ -1,7 +1,7 @@
 package me.allen.spooky.scripts.type.window.freak;
 
 import me.allen.spooky.scripts.SpookyScript;
-import me.allen.spooky.scripts.type.window.ScriptWindowNext;
+import me.allen.spooky.scripts.type.living.ScriptLivingRoom;
 
 public class ScriptFreakOut extends SpookyScript {
 
@@ -21,7 +21,7 @@ public class ScriptFreakOut extends SpookyScript {
             return new String[] {
                     "You freaked out",
                     "HP -1 (Current: " + spooky.getSpookyUser().getHealth() + ")",
-                    "Input anything to exit."
+                    "Input anything to exit and return to the living room."
             };
         } else {
             return new String[] {
@@ -32,7 +32,7 @@ public class ScriptFreakOut extends SpookyScript {
 
     @Override
     public SpookyScript getNextScript(String trigger) {
-        return spooky.getSpookyUser().getHealth() > 0 ? new ScriptWindowNext() : null;
+        return spooky.getSpookyUser().getHealth() > 0 ? new ScriptLivingRoom() : null;
     }
 
 }

@@ -1,23 +1,24 @@
-package me.allen.spooky.scripts.type.window;
+package me.allen.spooky.scripts.type.living;
 
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
+import me.allen.spooky.scripts.type.exit.ScriptExit;
 import me.allen.spooky.scripts.type.window.freak.ScriptFreakOut;
 import me.allen.spooky.scripts.type.window.tv.ScriptWatchTV;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScriptWindowNext extends SpookyScript {
+public class ScriptLivingRoom extends SpookyScript {
 
     @Override
     public String getName() {
-        return "Window|Next";
+        return "LivingRoom";
     }
 
     @Override
     public boolean canTrigger() {
-        return spooky.getScriptManager().getLastScript().getName().equalsIgnoreCase("Window|Observe");
+        return spooky.getScriptManager().getLastScript().getName().contains("Window");
     }
 
     @Override
@@ -27,6 +28,10 @@ public class ScriptWindowNext extends SpookyScript {
             actionsAvailable.add("Freak Out (c)");
         } else {
             actionsAvailable.add("Watch TV (x)");
+        }
+
+        if (spooky.getSpookyUser().hasActionPerformed("KnifePicked")) {
+            actionsAvailable.add("Unlock the Window by Knife (u)");
         }
 
         actionsAvailable.add("Exit (z)");
@@ -48,6 +53,12 @@ public class ScriptWindowNext extends SpookyScript {
             case "c":
                 if (spooky.getSpookyUser().hasActionPerformed("WatchTV")) {
                     return new ScriptFreakOut();
+                } else {
+                    return ScriptManager.DENIED;
+                }
+            case "u":
+                if (spooky.getSpookyUser().hasActionPerformed("KnifePicked")) {
+                    return new ScriptExit();
                 } else {
                     return ScriptManager.DENIED;
                 }

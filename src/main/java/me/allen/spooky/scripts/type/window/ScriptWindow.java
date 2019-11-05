@@ -3,6 +3,7 @@ package me.allen.spooky.scripts.type.window;
 import me.allen.spooky.scripts.ScriptManager;
 import me.allen.spooky.scripts.SpookyScript;
 import me.allen.spooky.scripts.type.ScriptEnter;
+import me.allen.spooky.scripts.type.window.retrigerator.ScriptRefrigerator;
 
 public class ScriptWindow extends SpookyScript {
 
@@ -24,6 +25,7 @@ public class ScriptWindow extends SpookyScript {
     public SpookyScript getNextScript(String trigger) {
         switch (trigger.toLowerCase()) {
             case "refrigerator":
+                return new ScriptRefrigerator();
             case "back":
                 return new ScriptEnter();
             default:

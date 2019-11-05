@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpookyUser {
-    private int health = 10;
+    private int health = 3;
 
     private List<String> actionsPerformed = new ArrayList<>();
 
     public boolean checkDeath() {
-        return health-- <= 0;
+        return --health <= 0;
     }
 
     public void addAction(String action) {
